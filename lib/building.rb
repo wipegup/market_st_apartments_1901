@@ -28,4 +28,20 @@ class Building
 
     return max_rent_of_filled.renter
   end
+
+  def annual_breakdown
+    filled_apartments = @units.find_all do |unit|
+      unit.renter != nil
+    end
+
+    breakdown = {}
+
+    filled_apartments.each do |unit|
+      name =  unit.renter.name
+      total =  unit.monthly_rent*12
+      breakdown[name] = total
+    end
+
+    return breakdown
+  end
 end
