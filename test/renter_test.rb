@@ -10,4 +10,5 @@ class RenterTest < MiniTest::Test
   def test_it_exists
     assert_instance_of Renter, @renter
   end
+  
 end
