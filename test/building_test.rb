@@ -50,4 +50,13 @@ class BuildingTest < MiniTest::Test
     assert_equal @spencer, @building.renter_with_highest_rent
   end
 
+  def test_renter_with_highest_rent_works_with_filled_building
+    @a1.add_renter(@jessie)
+    @b2.add_renter(@spencer)
+    @building.add_unit(@a1)
+    @building.add_unit(@b2)
+
+    assert_equal @jessie, @building.renter_with_highest_rent
+
+  end
 end
