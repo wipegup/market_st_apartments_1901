@@ -15,6 +15,9 @@ class BuildingTest < MiniTest::Test
                           monthly_rent: 999,
                           bathrooms: 2,
                           bedrooms: 2})
+
+    @spencer = Renter.new("Spencer")
+    @jessie = Renter.new("Jessie")
   end
 
   def test_it_exists
