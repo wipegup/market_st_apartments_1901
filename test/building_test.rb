@@ -13,4 +13,8 @@ class BuildingTest < MiniTest::Test
     assert_instance_of Building, @building
   end
 
+  def test_units_initialized_as_empty_array
+    assert_equal [], @building.units
+  end
+
 end
