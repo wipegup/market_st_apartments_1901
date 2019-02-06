@@ -16,4 +16,16 @@ class Building
 
     return total_rent / total_units
   end
+
+  def renter_with_highest_rent
+    filled_apartments = @units.find_all do |unit|
+      unit.renter != nil
+    end
+
+    max_rent_of_filled = filled_apartments.max_by do |unit|
+      unit.monthly_rent
+    end
+
+    return max_rent_of_filled.renter
+  end
 end

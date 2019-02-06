@@ -15,6 +15,9 @@ class BuildingTest < MiniTest::Test
                           monthly_rent: 999,
                           bathrooms: 2,
                           bedrooms: 2})
+
+    @spencer = Renter.new("Spencer")
+    @jessie = Renter.new("Jessie")
   end
 
   def test_it_exists
@@ -39,4 +42,21 @@ class BuildingTest < MiniTest::Test
     assert_equal 1099.5, @building.average_rent
   end
 
+  def test_renter_with_highest_rent_works_with_partially_filled_building
+    @b2.add_renter(@spencer)
+    @building.add_unit(@a1)
+    @building.add_unit(@b2)
+
+    assert_equal @spencer, @building.renter_with_highest_rent
+  end
+
+  def test_renter_with_highest_rent_works_with_filled_building
+    @a1.add_renter(@jessie)
+    @b2.add_renter(@spencer)
+    @building.add_unit(@a1)
+    @building.add_unit(@b2)
+
+    assert_equal @jessie, @building.renter_with_highest_rent
+
+  end
 end
