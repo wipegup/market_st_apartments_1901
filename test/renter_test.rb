@@ -7,5 +7,7 @@ class RenterTest < MiniTest::Test
     @renter = Renter.new("Jessie")
   end
 
-  
+  def test_it_exists
+    assert_instance_of Renter, @renter
+  end
 end
