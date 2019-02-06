@@ -73,5 +73,6 @@ class BuildingTest < MiniTest::Test
     @building.add_unit(@a1)
     @building.add_unit(@b2)
 
-    assert_equal ({"Jessie" => 14400, "Spencer" => 11988})
+    assert_equal ({"Jessie" => 14400, "Spencer" => 11988}), @building.annual_breakdown
+  end
 end
