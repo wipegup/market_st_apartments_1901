@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require './lib/apartment.rb'
+require './lib/renter.rb'
 
 class ApartmentTest < MiniTest::Test
   def setup
@@ -19,5 +20,12 @@ class ApartmentTest < MiniTest::Test
     assert_equal 1, @a1.bathrooms
     assert_equal 1, @a1.bedrooms
     assert_nil @a1.renter
+  end
+
+  def test_it_can_add_renter
+    jessie = Renter.new("Jessie")
+    @a1.add_renter(jessie)
+
+    assert_equal jessie, @a1.renter
   end
 end
