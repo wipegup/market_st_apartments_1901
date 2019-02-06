@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'lib/renter.rb'
+require './lib/renter.rb'
 
 class RenterTest < MiniTest::Test
 
@@ -10,5 +10,5 @@ class RenterTest < MiniTest::Test
   def test_it_exists
     assert_instance_of Renter, @renter
   end
-  
+
 end
